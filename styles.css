@@ -1,0 +1,475 @@
+/* --- MONOCHROME DARK THEME (CHARCOAL & GRAY) --- */
+:root {
+    --bg-dark: #121212;
+    --bg-surface: #1c1c1c;
+    --bg-surface-hover: #242424;
+    --border-color: #2e2e2e;
+    --border-color-hover: #4a4a4a;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --text-muted: #787878;
+    
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --transition: all 0.2s ease;
+}
+
+/* BASE RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* NAVIGATION */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(18, 18, 18, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12%;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+}
+
+.logo-text span {
+    color: var(--text-muted);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+/* MAIN CONTAINER & SECTIONS */
+.content-container {
+    flex: 1;
+    max-width: 760px;
+    width: 100%;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    padding: 60px 20px 40px 20px;
+}
+
+.page-section {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.page-section.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* SECTION HEADERS */
+.section-header {
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+/* 1. HOME SECTION */
+.home-text-space {
+    padding: 0;
+}
+
+.greeting-tag {
+    font-family: var(--font-code);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+}
+
+.headline-text {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.headline-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.home-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-dark);
+    border: 1px solid var(--text-primary);
+}
+
+.btn-primary:hover {
+    background: #e5e5e5;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+/* 2. ABOUT ME SECTION & TIMELINE */
+.about-intro {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.about-intro strong {
+    color: var(--text-primary);
+}
+
+.timeline-container {
+    margin-top: 1.5rem;
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 5px;
+    width: 1px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -1.5rem;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 2px solid var(--text-secondary);
+}
+
+.timeline-item:hover .timeline-dot {
+    border-color: var(--text-primary);
+    background: var(--text-primary);
+}
+
+.timeline-content {
+    padding-left: 0.5rem;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.timeline-heading {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.timeline-date {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.timeline-sub {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.timeline-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.timeline-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+    font-family: var(--font-code);
+}
+
+/* 3. PROJECTS SECTION */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    transition: var(--transition);
+}
+
+.project-item:hover {
+    border-color: var(--border-color-hover);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.project-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.project-links a:hover {
+    color: var(--text-primary);
+}
+
+.project-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.project-tech {
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* 4. CONTACT SECTION */
+.contact-intro {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-type {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.contact-link,
+.contact-obfuscated {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-code);
+    transition: var(--transition);
+}
+
+.contact-obfuscated {
+    cursor: pointer;
+    user-select: all;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--border-color);
+}
+
+.contact-obfuscated:hover {
+    border-color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-link:hover {
+    color: #e5e5e5;
+    text-decoration: underline;
+}
+
+/* FOOTER */
+.footer {
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 640px) {
+    .navbar {
+        height: auto;
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .nav-links {
+        gap: 1.25rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .content-container {
+        margin-top: 85px;
+        padding: 30px 16px 40px 16px;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    
+    .contact-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+}
